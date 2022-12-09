@@ -1,0 +1,297 @@
+/* =================== imported fonts =================== */
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600&display=swap');
+
+/* ---------- sub-header ---------- */
+
+/* =================== global variables =================== */
+:root {
+	--primary-violet: hsl(263, 55%, 52%);
+	--primary-dark-grey-blue: hsl(217, 19%, 35%);
+	--primary-dark-black-blue: hsl(219, 29%, 14%);
+	--primary-white: hsl(0, 0%, 100%);
+
+	--primary-light-grey: hsl(0, 0%, 81%);
+	--primary-light-grey-blue: hsl(210, 46%, 95%);
+}
+
+/* =================== reset default styles =================== */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+/* =================== base page styles =================== */
+body {
+	font-family: 'Barlow Semi Condensed', sans-serif;
+	font-size: 13px;
+	background-color: var(--primary-light-grey-blue);
+}
+/* =================== font styles =================== */
+h3 {
+	font-size: 22px;
+	font-weight: 600;
+	line-height: 112%
+}
+
+p {
+	font-size: 14px;
+	font-weight: 500;
+}
+/* =================== constants =================== */
+.main-grid {
+	display: grid;
+	gap: 10px;
+}
+
+.test-grid {
+	display: grid;
+	grid-template-columns: repeat(8, 1fr);
+	gap: 30px;
+}
+
+/* ---------- testimonials ---------- */
+.test {
+	padding: 2rem;
+	border-radius: 10px;
+	color: var(--primary-white);
+
+	box-shadow: 2px 2px 20px  rgba(72, 85, 106, 25%);
+}
+
+.test-title {
+	margin-bottom: 1rem;
+}
+
+.test:nth-child(3n) .test-title, .test:nth-child(3n) .name,
+.test:nth-child(5n) .test-title, .test:nth-child(5n) .name {
+	color: var(--primary-dark-grey-blue);
+}
+
+.test-body {
+	color: rgba(255, 255, 255, 70%);
+}
+
+.test:nth-child(3n) .test-body,
+.test:nth-child(5n) .test-body {
+	color: rgba(72, 85, 106, 70%);
+}
+
+/* ---------- testimonial(s) 1st ---------- */
+.test:first-child {
+	background-image: url(./assets/bg-pattern-quotation.svg);
+	background-repeat: no-repeat;
+	background-position: top right 10%;
+}
+
+.test:nth-child(1n) {
+	background-color: var(--primary-violet);
+}
+
+/* ---------- testimonial(s) 2nd ---------- */
+.test:nth-child(2n) {
+	background-color: var(--primary-dark-grey-blue);
+}
+
+/* ---------- testimonial(s) 3rd ---------- */
+.test:nth-child(3n) {
+	background-color: var(--primary-white);
+}
+
+/* ---------- testimonial(s) 4th ---------- */
+.test:nth-child(4n) {
+	background-color: var(--primary-dark-black-blue);
+}
+
+.test:nth-child(4n) .user-container img {
+	border-color: var(--primary-violet);
+}
+
+/* ---------- testimonial(s) 5th ---------- */
+.test:nth-child(5n) {
+	background-color: var(--primary-white);
+}
+
+/* ---------- user container ---------- */
+.user-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+}
+
+.user-img img {
+	width: 2rem;
+	height: 2rem;
+	border-radius: 100%;
+	border: 2px solid  rgba(255, 255, 255, 50%);
+	margin: 0 1rem .5rem 0;
+}
+
+/* user name */
+.status {
+	color:  rgba(255, 255, 255, 50%);
+}
+
+.test:nth-child(3n) .status,
+.test:nth-child(5n) .status {
+	color: rgba(72, 85, 106, 50%);
+}
+
+/* ---------- attribution ---------- */
+.attribution {
+	margin-top: .5rem;
+	text-align: center;
+}
+
+/* =================== media queries =================== */
+
+/* =================== MOBILE =================== */
+@media only screen and (max-width: 40em) {
+	.main-grid {
+		grid-template-columns: repeat(4, 1fr);
+		padding: 20px;
+	}
+
+	.test-grid {
+		grid-column: span 4;
+	}
+
+	/* ---------- testimonial overall ---------- */
+	.test {
+		grid-column: span 8;
+		margin: 0 auto;
+		max-width: 22rem;
+	}
+
+	.test-body {
+		width: 43ch;
+	}
+
+	/* ---------- attribution ---------- */
+	.attribution {
+		grid-column: span 4;
+	}
+}
+
+/* =================== TABLET =================== */
+@media only screen and (min-width: 40.063em) and (max-width: 64em) {
+	.main-grid {
+		grid-template-columns: repeat(6, 1fr);
+		padding: 2rem;
+	}
+
+	.test-grid {
+		grid-column: span 6;
+	}
+
+	/* ---------- testimonial overall ---------- */
+	.test {
+		grid-column: span 8;
+		margin: 0 auto;
+		max-width: 40rem;
+	}
+
+	/* ---------- attribution ---------- */
+	.attribution {
+		grid-column: span 6;
+	}
+}
+
+/* =================== DESKTOP =================== */
+@media only screen and (min-width: 64.063em) and (max-width: 90em) {
+	.main-grid {
+		grid-template-columns: repeat(12, 1fr);
+		padding: 2rem 0;
+	}
+
+	.test-grid {
+		grid-column: 2 / 12;
+
+		grid-template-rows: repeat(2, min-content);
+	}
+
+	/* ---------- testimonial overall ---------- */
+	.test:nth-child(1n) {
+		grid-column: span 4;
+
+	}
+
+	.test:first-child {
+		background-position: top right 15%;
+	}
+
+	.test:nth-child(2n) {
+		grid-column: span 2;
+	}
+
+	.test:nth-child(3n) {
+		grid-column: span 2;
+		grid-row: 2;
+
+	}
+
+	.test:nth-child(4n) {
+		grid-column: span 4;
+		grid-row: 2;
+
+	}
+
+	.test:nth-child(5n) {
+		grid-column: span 2;
+		grid-row: span 2;
+
+	}
+	/* ---------- attribution ---------- */
+	.attribution {
+		grid-column: span 12;
+	}
+}
+
+/* =================== XL DESKTOP AND BEYOND =================== */
+@media only screen and (min-width: 90.063em) {
+	.main-grid {
+		grid-template-columns: repeat(12, 1fr);
+		padding: 2rem 0;
+	}
+
+	.test-grid {
+		grid-column: 2 / 12;
+
+		grid-template-rows: repeat(2, min-content);
+	}
+
+	/* ---------- testimonial overall ---------- */
+	.test:nth-child(1n) {
+		grid-column: span 4;
+	}
+
+	.test:first-child {
+		background-position: top right 15%;
+	}
+
+	.test:nth-child(2n) {
+		grid-column: span 2;
+	}
+
+	.test:nth-child(3n) {
+		grid-column: span 2;
+		grid-row: 2;
+
+	}
+
+	.test:nth-child(4n) {
+		grid-column: span 4;
+		grid-row: 2;
+
+	}
+
+	.test:nth-child(5n) {
+		grid-column: span 2;
+		grid-row: span 2;
+
+	}
+	/* ---------- attribution ---------- */
+	.attribution {
+		grid-column: span 12;
+	}
+}
